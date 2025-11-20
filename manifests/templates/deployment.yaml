@@ -1,0 +1,25 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: huhu
+  labels:
+    app: huhu
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: huhu
+  template:
+    metadata:
+      labels:
+        app: huhu
+    spec:
+      containers:
+        - name: huhu
+          image: docker.io/phengbunath/huhu:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
